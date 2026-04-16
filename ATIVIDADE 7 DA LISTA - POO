@@ -1,0 +1,55 @@
+//ATIVIDADE 7
+
+import java.util.Scanner;
+
+public class trian{
+
+    public static void main(String[] args) {    
+
+        Scanner scanner = new Scanner(System.in);
+        int altura;
+        System.out.print("Informe a altura: ");
+        altura = scanner.nextInt();
+        while (altura <= 0)
+        {
+            System.out.print("Informe a altura corretamente: ");
+            altura = scanner.nextInt();
+        }
+        
+        int ordem;
+        System.out.print("1 - crescente; 2 - decrescente.");
+        System.out.print("Informe a ordem: ");
+        ordem = scanner.nextInt();
+        while ((ordem != 1) && (ordem != 2))
+        {
+            System.out.print("Informe a ordem corretamente: ");
+            ordem = scanner.nextInt();
+        }
+        
+        // crescente
+        if (ordem == 1){ 
+            // controla a altura
+            for(int i = 1; i <= altura; i++)
+            {
+                // controla as linhas
+                for(int j = 1; j <= i; j++)
+                {
+                    System.out.print(Integer.toString(j) + "..");
+                }
+                System.out.println();
+            }
+        } else
+        {
+            // controla a altura
+            for(int i = altura; i >= 1; i--)
+            {
+                // controla as linhas
+                for(int j = i; j >= 1; j--)
+                {
+                    System.out.print(Integer.toString(j) + "..");
+                }
+                System.out.println();
+            }
+        }
+    }
+}
