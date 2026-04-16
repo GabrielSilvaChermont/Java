@@ -1,0 +1,87 @@
+//ATIVIDADE 10
+
+import java.util.Scanner;
+
+public class atdez{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] matricula = new int[5];
+        String[] nome = new String[5];
+        
+        double[] poo = new double[6];
+        double[] db = new double[6];
+        double[] web1 = new double[6];
+        double[] arq = new double[6];
+        double[] sw = new double[6];
+        double[] desemp = new double[6];
+        
+        for(int i = 0; i <= 4; i++)
+        {
+            System.out.print("Matrícula: ");
+            matricula[i] = scanner.nextInt();
+            scanner.nextLine();
+            
+            System.out.print("Nome.....: ");
+            nome[i] = scanner.nextLine();
+            
+            System.out.print("POO......: ");
+            poo[i] = scanner.nextDouble();
+            System.out.print("FunDB....: ");
+            db[i] = scanner.nextDouble();
+            System.out.print("Web 1....: ");
+            web1[i] = scanner.nextDouble();
+            System.out.print("Arq......: ");
+            arq[i] = scanner.nextDouble();
+            System.out.print("EngSW....: ");
+            sw[i] = scanner.nextDouble();
+            
+            // desempenho do aluno
+            desemp[i] = (poo[i] + db[i] + web1[i] + arq[i] + sw[i]) / 5;
+        }
+        
+        double mPoo = 0;
+        double mDb = 0;
+        double mWeb1 = 0;
+        double mArq = 0;
+        double mSw = 0;
+        double mGeral = 0;
+        for(int i = 0; i <= 4; i++)
+        {
+            mPoo += poo[i];
+            mDb += db[i];
+            mWeb1 += web1[i];
+            mArq += arq[i];
+            mSw += sw[i];
+            mGeral += desemp[i];
+        }
+        poo[5] = mPoo/5;
+        db[5] = mDb/5;
+        web1[5] = mWeb1/5;
+        arq[5] = mArq/5;
+        sw[5] = mSw/5;
+        desemp[5] = mGeral/5;
+                
+        for(int i = 0; i <= 4; i++)
+        {
+            System.out.print(Integer.toString(matricula[i]) + "|");
+            System.out.print(nome[i] + "|");
+            System.out.print(Double.toString(poo[i]) + "|");
+            System.out.print(Double.toString(db[i]) + "|");
+            System.out.print(Double.toString(web1[i]) + "|");
+            System.out.print(Double.toString(arq[i]) + "|");
+            System.out.print(Double.toString(sw[i]) + "|");
+            System.out.print(Double.toString(desemp[i]) + "|");
+            System.out.println();
+        }
+        System.out.print(" |");
+        System.out.print("    |");
+        System.out.print(Double.toString(poo[5]) + "|");
+        System.out.print(Double.toString(db[5]) + "|");
+        System.out.print(Double.toString(web1[5]) + "|");
+        System.out.print(Double.toString(arq[5]) + "|");
+        System.out.print(Double.toString(sw[5]) + "|");
+        System.out.print(Double.toString(desemp[5]) + "|");
+    }
+ }
+
+
