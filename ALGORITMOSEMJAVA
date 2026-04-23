@@ -108,3 +108,87 @@ public class AlgoritmosEmJava {
     }
 }
 
+
+-------------------------------------------------- ALUNO
+
+package com.mycompany.algoritmosemjava;
+
+public class Aluno {
+    private int matricula;
+    private String nome;
+
+    public int getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(int matricula) {
+        this.matricula = matricula;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+}
+
+-------------------------------------------------- DISCIPLINA
+
+package com.mycompany.algoritmosemjava;
+
+public class Disciplina {
+    private int id;
+    private String descricao;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+}
+
+------------------------------------------------------- NOTA
+
+package com.mycompany.algoritmosemjava;
+
+public class Nota {
+    private Aluno aluno;
+    private Disciplina disciplina;
+    private double nota;
+
+    public Aluno getAluno() {
+        return aluno;
+    }
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
+    }
+
+    public Disciplina getDisciplina() {
+        return disciplina;
+    }
+
+    public void setDisciplina(Disciplina disciplina) {
+        this.disciplina = disciplina;
+    }
+
+    public double getNota() {
+        return nota;
+    }
+
+    public void setNota(double nota) {
+        this.nota = nota;
+    }
+}
