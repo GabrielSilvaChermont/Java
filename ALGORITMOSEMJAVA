@@ -1,0 +1,110 @@
+package com.mycompany.algoritmosemjava;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class AlgoritmosEmJava {
+    static Scanner scanner = new Scanner(System.in);
+    
+     //O ARRAY É UMA "CAIXA" QUE GUARDA OS OBJETOS E SE COMUNICA COM AS CLASSES
+    static ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
+    static ArrayList<Aluno> alunos = new ArrayList<Aluno>();
+    static ArrayList<Nota> notas = new ArrayList<Nota>();
+    
+    public static void main(String[] args) {
+        ListarMenu();
+        int opcao = 0;
+        System.out.print("Informe a opção: ");
+        opcao = scanner.nextInt();        
+        while(opcao != 9)
+        {
+            switch(opcao){
+                //O SWITCH DECIDE QUAL METODO CHAMAR COM BASE NO NUMERO DIGITADO, ENQUANTO FOR DIFERENTE DE 9 O PROGRAMA VAI RODAR
+                case 1 -> NovaDisciplina();
+                case 2 -> ListarDisciplinas();
+                case 3 -> AlterarDisciplina();
+                case 4 -> ExcluirDisciplina();
+            }
+                
+            System.out.print("Informe a opcao: ");
+            opcao = scanner.nextInt();        
+        }
+    }
+    //CRIANDO A CLASSE NOVA DISCIPLINA
+    public static void NovaDisciplina()
+    {
+        System.out.println("NOVA DISCIPLINA");
+        System.out.println("---------------");
+        System.out.println("Descrição: ");
+        scanner.nextLine();
+        String descricao = scanner.nextLine();
+        
+        // Instanciação de um Objeto da classe Disciplina
+        var disciplina = new Disciplina();
+        disciplina.setId(disciplinas.size());
+        disciplina.setDescricao(descricao);
+        disciplinas.add(disciplina);  
+        //Seta o ID com base no tamanho atual da lista, seta a descrição, e adiciona na lista.
+    }
+    
+    public static void ListarDisciplinas()
+    {
+        System.out.println("DISCIPLINAS");
+        System.out.println("-----------");
+ 
+        for (var d : disciplinas) { //PARA CADA OBJETO D DENTRO DE DISCIPLINA, FAÇA:
+            //AQUI ELE ESTÁ CONVERTANDO O ID DE INT PARA STRING, PORQUE  AQUI O + ESTÁ CONCATENANDO TEXTO, NAO SOMANDO NUMEROS
+            System.out.println(Integer.toString(d.getId()) + " " + d.getDescricao()); 
+        }
+        
+        System.out.println();
+    }
+
+    public static void AlterarDisciplina()
+    {
+        System.out.println("ALTERAR DISCIPLINA");
+        System.out.println("------------------");
+        ListarDisciplinas();
+        System.out.print("Informe o ID: ");
+        int id = scanner.nextInt();
+    
+        for (var d : disciplinas) {
+        if (d.getId() == id) {
+            System.out.println("Nova descrição: ");
+            scanner.nextLine();
+            String descricao = scanner.nextLine();
+            d.setDescricao(descricao);
+            System.out.println("Disciplina alterada.");
+            break;
+        }
+    }
+}
+    
+    public static void ExcluirDisciplina()
+{
+        System.out.println("EXCLUIR DISCIPLINA");
+        System.out.println("------------------");
+        ListarDisciplinas();
+        System.out.print("Informe o ID: ");
+        int id = scanner.nextInt();
+    
+        for (var d : disciplinas) {
+        if (d.getId() == id) {
+            disciplinas.remove(d);
+            System.out.println("Disciplina removida.");
+            //O BREAK SAI DO 'FOR' EMIDIATAMENTE APOS O REMOVE, ANTES QUE O FOR TENTE CONTINUAR, ASSIM EVITANDO O ERRO
+            break;
+        }
+    }
+}
+    
+    public static void ListarMenu()
+    {
+        System.out.println("1 - Nova Disciplina");
+        System.out.println("2 - Listar Disciplina");
+        System.out.println("3 - Alterar Disciplina"); 
+        System.out.println("4 - Excluir Disciplina");           
+        System.out.println("9 - SAIR");
+    }
+}
+
